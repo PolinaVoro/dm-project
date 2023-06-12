@@ -11,7 +11,7 @@ export default function Cards() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await fetch('https://skillfactory-task.detmir.team/products?page=1&limit=20');
+        const response = await fetch('https://skillfactory-task.detmir.team/products?page=1&limit=15');
         const data = await response.json();
         if (data && data.meta && data.data) {
           setProducts(data.data);
@@ -25,12 +25,7 @@ export default function Cards() {
   }, []);
 
   return (
-    <Box sx={{ 
-      width: 1346,
-      height: 1000,
-      display: 'flex',
-      justifyContent: 'center',
-      alignItems: 'center'}}>
+    <Box sx={{ }}>
       <Grid
         container
         spacing={{ xs: 2, md: 2 }}
@@ -58,11 +53,14 @@ export default function Cards() {
                     alt={product.title}
                   />
                   <CardContent>
-                    <Typography variant="h6" component="div">
+                    <Typography variant="h6" component="div" sx={{ maxHeight: 30, overflow: 'hidden' }}>
                       {product.title}
                     </Typography>
                     <Rating name="rating" value={product.rating} readOnly />
-                    <Typography variant="body1">{product.price}</Typography>
+                    <Typography variant="body1" sx={{ fontWeight: 'bold', color: 'black', fontSize: 22 }}>
+                      {product.price}₽
+                    </Typography>
+
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -75,3 +73,4 @@ export default function Cards() {
     </Box>
   );
 }
+

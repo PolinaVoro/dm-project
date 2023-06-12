@@ -6,6 +6,8 @@ import Paper from '@mui/material/Paper';
 import ButtonBase from '@mui/material/ButtonBase';
 import { Rating } from '@mui/material';
 import Button from '@mui/material/Button';
+import DescriptionCard from './descriptionCard';
+
 
 
 
@@ -31,14 +33,17 @@ export default function ProductDetailsPage({ match }) {
           maxWidth: 792,
           maxHeight: 422,
           flexGrow: 1,
+          borderRadius: 3, 
           backgroundColor: (theme) =>
             theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         }}
       >
         <Grid container spacing={2}>
           <Grid item>
-            <ButtonBase sx={{ width: 128, height: 128 }}>
-              <Img alt="complex" src="/static/images/grid/complex.jpg" />
+            <ButtonBase sx={{ 
+              width: 374,
+              height: 374,}}>
+              <Img alt="" src="" />
             </ButtonBase>
           </Grid>
           <Grid item xs={12} sm container>
@@ -76,6 +81,8 @@ export default function ProductDetailsPage({ match }) {
                     </Typography>
                   </Grid>
 
+                 
+
 
 
 
@@ -84,6 +91,8 @@ export default function ProductDetailsPage({ match }) {
           </Grid>
         </Grid>
       </Paper>
+
+      <DescriptionCard/>
 
       
     </div>

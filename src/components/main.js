@@ -1,18 +1,22 @@
-import { Box, Container } from "@mui/system";
+import { Box } from "@mui/system";
 import React from "react";
 import Card from "./card";
 
 export default function Main() {
     return (
-        <Box
+        <Box component="main"
             sx={{
+                marginTop: 4,
+                p: 6, 
                 backgroundColor: '#f2f6fa',
-                position: 'relative',
-                top: 64,
-
+                height: 1138,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center'
             }}
         >
-            <Card  />
+            <Card />
         </Box>
     );
 }
+
