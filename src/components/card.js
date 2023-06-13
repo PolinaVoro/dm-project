@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea, Rating, Box, Grid } from '@mui/material';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchProducts } from '../store/actions/CardsActions';
+import { Box, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Rating } from '@mui/material';
 
 export default function Cards() {
-  const [products, setProducts] = useState([]);
+  const products = useSelector((state) => state.products);
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      try {
-        const response = await fetch('https://skillfactory-task.detmir.team/products?page=1&limit=15');
-        const data = await response.json();
-        if (data && data.meta && data.data) {
-          setProducts(data.data);
-        }
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchProducts();
-  }, []);
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
   return (
     <Box sx={{ }}>
@@ -60,7 +47,6 @@ export default function Cards() {
                     <Typography variant="body1" sx={{ fontWeight: 'bold', color: 'black', fontSize: 22 }}>
                       {product.price}₽
                     </Typography>
-
                   </CardContent>
                 </CardActionArea>
               </Card>
@@ -73,4 +59,6 @@ export default function Cards() {
     </Box>
   );
 }
+
+
 
