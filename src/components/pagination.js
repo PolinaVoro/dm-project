@@ -17,13 +17,13 @@ export default function PaginationFooter() {
           top: '1225px',
           left: '550px',
           '& .MuiPaginationItem-root': {
-            backgroundColor: '#E6F1FC', // Измените цвет фона кнопок здесь
+            backgroundColor: '#E6F1FC', 
             color: '#0073E6',
-            border: 'none' // Измените цвет текста кнопок здесь
+            border: 'none' 
           },
           '& .MuiPaginationItem-root.Mui-selected': {
-            backgroundColor: '#0073E6', // Измените цвет фона активной кнопки здесь
-            color: '#FFFFFF', // Измените цвет текста активной кнопки здесь
+            backgroundColor: '#0073E6',
+            color: '#FFFFFF', 
           },
         }}
         count={11}

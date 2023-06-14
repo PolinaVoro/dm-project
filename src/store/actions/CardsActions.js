@@ -1,4 +1,4 @@
-// actions.js
+
 export const fetchProducts = () => {
     return async (dispatch) => {
       try {

@@ -19,10 +19,7 @@ const Img = styled('img')({
 });
 
 export default function ProductDetailsPage({ match }) {
-  //const productId = match.params.id; // получаем идентификатор товара из URL
 
-  // В этом компоненте вы можете выполнить запрос к серверу, используя полученный идентификатор товара,
-  // чтобы получить дополнительные данные о товаре, если это необходимо.{productId}
 
   return (
     <div>
