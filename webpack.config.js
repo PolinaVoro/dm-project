@@ -11,25 +11,25 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/, // Обрабатывать файлы с расширением .js
+        test: /\.js$/, 
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader', // Использовать загрузчик Babel
+          loader: 'babel-loader', 
           options: {
-            presets: ['@babel/preset-env', '@babel/preset-react'], // Настройки Babel
+            presets: ['@babel/preset-env', '@babel/preset-react'], 
           },
         },
       },
       {
-        test: /\.css$/, // Обрабатывать файлы с расширением .css
+        test: /\.css$/, 
         use: ['style-loader', 'css-loader'],
       },
       {
-        test: /\.svg$/, // Обрабатывать файлы с расширением .svg
+        test: /\.svg$/, 
         use: ['@svgr/webpack'],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i, // Обрабатывать файлы с расширениями .png, .jpg, .jpeg, .gif
+        test: /\.(png|jpe?g|gif)$/i, 
         type: 'asset/resource',
       },
     ],
