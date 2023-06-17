@@ -6,13 +6,14 @@ import { Box, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Ra
 export default function Cards() {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
+  const currentPage = useSelector((state) => state.pagination.currentPage);
 
   useEffect(() => {
-    dispatch(fetchProducts());
-  }, [dispatch]);
+    dispatch(fetchProducts(currentPage));
+  }, [dispatch, currentPage]);
 
   return (
-    <Box sx={{ }}>
+    <Box>
       <Grid
         container
         spacing={{ xs: 2, md: 2 }}

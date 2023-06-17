@@ -10,7 +10,7 @@ export default function Buttons() {
   };
 
   return (
-    <Box>
+    <Box sx={{ marginRight: 12, }}>
       <Button
         onClick={() => handleButtonClick('Товары')}
         sx={{

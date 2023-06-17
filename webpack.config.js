@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+const opn = require('opn');
+
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
@@ -39,4 +41,11 @@ module.exports = {
       template: './public/index.html',
     }),
   ],
+  devServer: {
+    open: false,
+    onAfterSetupMiddleware: function () {
+      opn('http://localhost:8080', { app: ['google chrome'] });
+    },
+  },
+
 };

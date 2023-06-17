@@ -3,13 +3,13 @@ import React from 'react';
 import Header from './components/header';
 import Footer from './components/footer'
 import Main from './components/main';
-import ProductDetailsPage from './components/ProductDetailsPage';
+import ProductDetailsPage from './components/productDetailsPage';
 
 
 function App() {
   return (
     <div className="App">
-      <Header/>
+     <Header/>
       <Main/>
      <Footer />
 

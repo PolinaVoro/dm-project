@@ -1,21 +1,21 @@
 import { Box } from "@mui/system";
 import React from "react";
-import Card from "./card";
+import Cards from "./productsList";
 
 export default function Main() {
     return (
         <Box component="main"
             sx={{
                 marginTop: 4,
-                p: 6, 
+                p: 4, 
                 backgroundColor: '#f2f6fa',
-                height: 1138,
+                height: 1100,
                 display: 'flex',
                 justifyContent: 'center',
                 alignItems: 'center'
             }}
         >
-            <Card />
+            <Cards />
         </Box>
     );
 }
