@@ -1,34 +1,30 @@
-import { Box, Container } from "@mui/system";
+
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
-import ButtonBase from '@mui/material/ButtonBase';
-import { Rating } from '@mui/material';
-import Button from '@mui/material/Button';
-
 import React from "react";
 
 export default function DescriptionCard() {
   return (
-    <div>
+    <div >
       <Paper
         sx={{
-          margin: 'auto',
-          marginTop: '50px',
-          maxWidth: 792,
-          maxHeight: 422,
-          flexGrow: 1,
+          marginTop: 5,
+          p: 2,
+          width: 792,
+          height: 200,
+          boxShadow: 'none',
           borderRadius: 3, 
           backgroundColor: (theme) =>
             theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
         }}
       >
-        <Grid container spacing={2}>
+        <Grid container  >
 
-          <Grid item xs={12} sm container>
-            <Grid item xs container direction="column" spacing={2}>
+          <Grid item xs={12} sm container >
+            <Grid item xs container direction="column" >
                     <Grid item xs>
-                        <Typography gutterBottom variant="subtitle1" component="div">
+                        <Typography gutterBottom variant="subtitle1" component="div" sx={{ fontWeight: 600,}}>
                         Описание
                         </Typography>
                         
