@@ -6,6 +6,7 @@ const opn = require('opn');
 module.exports = {
   mode: 'development',
   entry: './src/index.js',
+  devtool: 'source-map',
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
@@ -39,6 +40,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './public/index.html',
+      sourceMap: true,
     }),
   ],
   devServer: {

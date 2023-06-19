@@ -1,7 +1,6 @@
 import React from 'react';
-import { styled } from '@mui/system';
 import Button from '@mui/material/Button';
-import { AppBar, Container, Toolbar, Box } from '@mui/material';
+import { AppBar,  Toolbar, Box } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Buttons from './buttons';
 

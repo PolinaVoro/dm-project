@@ -2,6 +2,7 @@ const initialState = {
   currentPage: 1,
   totalPages: 11,
   products: [],
+  currentProduct: null,
 };
 
 export const currentPageReducer = (state = initialState.currentPage, action) => {
@@ -26,6 +27,17 @@ export const productsReducer = (state = initialState.products, action) => {
   switch (action.type) {
     case 'FETCH_PRODUCTS_SUCCESS':
       return action.payload.products;
+    default:
+      return state;
+  }
+};
+
+export const currentProductReducer = (state = initialState.currentProduct, action) => {
+  switch (action.type) {
+    case 'FETCH_PRODUCT_SUCCESS':
+      return action.payload;
+    case 'FETCH_PRODUCT_ERROR':
+      return null;
     default:
       return state;
   }

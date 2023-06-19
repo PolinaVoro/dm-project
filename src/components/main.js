@@ -1,14 +1,15 @@
 import { Box } from "@mui/system";
 import React from "react";
 import Cards from "./productsList";
-import ProductDetailsPage from "./productDetailsPage";
+import { Link } from "react-router-dom";
+
 
 export default function Main() {
     return (
         <Box component="main"
             sx={{
                 marginTop: 4,
-                p: 4, 
+                p: 5, 
                 backgroundColor: '#f2f6fa',
                 height: 1100,
                 display: 'flex',
@@ -16,7 +17,10 @@ export default function Main() {
                 alignItems: 'center'
             }}
         >
-            <ProductDetailsPage/>
+            <Link to="/product/:productId" style={{ textDecoration: 'none', }}>
+            <Cards/>
+            </Link>
+            
         </Box>
     );
 }

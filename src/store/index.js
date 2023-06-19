@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
-import { currentPageReducer, totalPagesReducer, productsReducer } from './reducers/CardsReducers';
+import { currentPageReducer, totalPagesReducer, productsReducer, currentProductReducer } from './reducers/CardsReducers';
+
 
 const rootReducer = combineReducers({
   pagination: combineReducers({
@@ -7,6 +8,9 @@ const rootReducer = combineReducers({
     totalPages: totalPagesReducer,
   }),
   products: productsReducer,
+  currentProduct: currentProductReducer,
+ 
+  
 });
 
 export default rootReducer;
