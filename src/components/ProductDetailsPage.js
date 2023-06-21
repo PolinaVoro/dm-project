@@ -8,7 +8,8 @@ import ButtonBase from '@mui/material/ButtonBase';
 import Typography from '@mui/material/Typography';
 import { Rating } from '@mui/material';
 import Button from '@mui/material/Button';
-
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import { Link } from 'react-router-dom';
 
 export default function ProductDetailsPage() {
   const dispatch = useDispatch();
@@ -24,6 +25,14 @@ export default function ProductDetailsPage() {
   return (
     <div  style={{display: 'flex', justifyContent: 'center', alignItems: 'center',
      marginTop: 63, backgroundColor: '#f2f6fa', padding: 20, }}>
+
+      <Button component={Link} to="/"  sx={{position: 'absolute', top: '80px', left: '30px'}}>
+        <ArrowBackIcon fontSize="medium" />
+        <Typography>Назад</Typography>
+      </Button>
+
+
+      
       {product ? (
         <div >
           <Paper
@@ -48,8 +57,8 @@ export default function ProductDetailsPage() {
                     <Typography gutterBottom variant="subtitle1" component="div" sx={{ fontSize: 28, fontWeight: 500 }}>
                       {product.category}
                     </Typography>
-                    <Rating name="rating" value={product.rating} />
-                    <Typography variant="body2" sx={{ fontSize: 28, marginTop: 5, fontWeight: 800 }}>
+                    <Rating name="rating" value={product.rating} readOnly />
+                    <Typography variant="body2" sx={{ fontSize: 28, marginTop: 3, fontWeight: 800 }}>
                       {product.price}₽
                     </Typography>
                   </Grid>

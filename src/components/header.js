@@ -3,6 +3,7 @@ import Button from '@mui/material/Button';
 import { AppBar,  Toolbar, Box } from '@mui/material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Buttons from './buttons';
+import Typography from '@mui/material/Typography';
 
 
 
@@ -20,8 +21,8 @@ function Header() {
 
           <Box >
             <Button  sx={{ textTransform: 'capitalize', }} >
-              <AddShoppingCartIcon style={ {color :'#172029', fontSize: 'medium'}} />
-               Корзина
+              <img src="images/Shape.svg" alt=""/>
+               <Typography sx={{color :'#172029', fontSize: 15 }}>Корзина</Typography>
             </Button>
           </Box>
 
