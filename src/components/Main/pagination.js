@@ -2,12 +2,12 @@ import React from 'react';
 import Pagination from '@mui/material/Pagination';
 import Stack from '@mui/material/Stack';
 import { useDispatch, useSelector } from 'react-redux';
-import { setCurrentPage, fetchProducts } from '../store/actions/CardsActions';
+import { setCurrentPage, fetchProducts } from '../../store/actions/CardsActions';
 
 export default function PaginationFooter() {
   const dispatch = useDispatch();
   const currentPage = useSelector((state) => state.currentPage);
-  const totalPages = useSelector((state) => state.totalPages);
+
 
   const handlePageChange = (event, page) => {
     dispatch(setCurrentPage(page));

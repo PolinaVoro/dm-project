@@ -1,7 +1,8 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../store/actions/CardsActions';
-import { useParams } from 'react-router-dom';
+import { fetchProducts } from '../../store/actions/CardsActions';
+
+import { useParams, Link } from 'react-router-dom';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 import ButtonBase from '@mui/material/ButtonBase';
@@ -9,10 +10,15 @@ import Typography from '@mui/material/Typography';
 import { Rating } from '@mui/material';
 import Button from '@mui/material/Button';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
-import { Link } from 'react-router-dom';
+import { addToCart } from '../../store/actions/CartActions';
 
-export default function ProductDetailsPage() {
+const ProductDetailsPage = () => {
+  
+
   const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    dispatch(addToCart(product));
+  };
   const { productId } = useParams();
   const product = useSelector((state) => state.currentProduct);
 
@@ -20,21 +26,15 @@ export default function ProductDetailsPage() {
     dispatch(fetchProducts(1, 15, productId));
   }, [dispatch, productId]);
 
-  
-
   return (
-    <div  style={{display: 'flex', justifyContent: 'center', alignItems: 'center',
-     marginTop: 63, backgroundColor: '#f2f6fa', padding: 20, }}>
-
-      <Button component={Link} to="/"  sx={{position: 'absolute', top: '80px', left: '30px'}}>
+    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 63, backgroundColor: '#f2f6fa', padding: 20 }}>
+      <Button component={Link} to="/" sx={{ position: 'absolute', top: '80px', left: '30px' }}>
         <ArrowBackIcon fontSize="medium" />
         <Typography>Назад</Typography>
       </Button>
 
-
-      
       {product ? (
-        <div >
+        <div>
           <Paper
             sx={{
               p: 2,
@@ -62,8 +62,9 @@ export default function ProductDetailsPage() {
                       {product.price}₽
                     </Typography>
                   </Grid>
-                  <Grid item>
-                    <Button sx={{ width: 346, height: 52, background: '#0073E6', borderRadius: 3, marginBottom: 4 }}>
+                  <Grid item> 
+                 
+                    <Button onClick={handleAddToCart} sx={{ width: 346, height: 52, background: '#0073E6', borderRadius: 3, marginBottom: 4 }}>
                       <Typography sx={{ color: '#ffffff', fontSize: 16, textTransform: 'capitalize' }}>Добавить в корзину</Typography>
                     </Button>
                   </Grid>
@@ -71,27 +72,15 @@ export default function ProductDetailsPage() {
                     <Typography sx={{ fontWeight: 600, cursor: 'pointer' }}>
                       <img alt="" src="/images/Shape2.svg" width={20} style={{ marginRight: '5px' }} /> Условия возврата
                     </Typography>
-                    <Typography sx={{ fontSize: 16 }} > Обменять или вернуть товар надлежащего качества можно в течение 14 дней с момента покупки.  </Typography>
-                    <Typography sx={{ fontSize: 10, color: '#808080' }}> Цены в интернет-магазине могут отличаться от розничных магазинов.</Typography>
+                    <Typography sx={{ fontSize: 16 }}>Обменять или вернуть товар надлежащего качества можно в течение 14 дней с момента покупки.</Typography>
+                    <Typography sx={{ fontSize: 10, color: '#808080' }}>Цены в интернет-магазине могут отличаться от розничных магазинов.</Typography>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Paper>
 
-          <div >
-            <Paper
-            sx={{
-              marginTop: 5,
-              p: 2,
-              width: 792,
-              boxShadow: 'none',
-              borderRadius: 3, 
-              backgroundColor: (theme) =>
-                theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-            }}
-            height="auto"
-          >
+          <Paper sx={{ marginTop: 5, p: 2, width: 792, boxShadow: 'none', borderRadius: 3, backgroundColor: (theme) => (theme.palette.mode === 'dark' ? '#1A2027' : '#fff') }}>
             <Grid container>
               <Grid item xs={12} sm container>
                 <Grid item xs container direction="column">
@@ -99,31 +88,18 @@ export default function ProductDetailsPage() {
                     <Typography gutterBottom variant="subtitle1" component="div" sx={{ fontWeight: 600 }}>
                       Описание
                     </Typography>
-                    <Typography variant="body2" gutterBottom dangerouslySetInnerHTML={{ __html: product.description }}>
-                    </Typography>
+                    <Typography variant="body2" gutterBottom dangerouslySetInnerHTML={{ __html: product.description }}></Typography>
                   </Grid>
                 </Grid>
               </Grid>
             </Grid>
           </Paper>
-
         </div>
-
-       
-
-
-
-
-
-        </div>
-
-        
-
-        
       ) : (
         <p>Loading...</p>
       )}
     </div>
   );
-}
+};
 
+export default ProductDetailsPage;

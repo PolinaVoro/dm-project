@@ -1,7 +1,7 @@
 import { Box } from "@mui/system";
 import React from "react";
-import Cards from "./productsList";
-import { Link } from "react-router-dom";
+import Cards from "../productsList";
+
 
 
 export default function Main() {
@@ -17,9 +17,9 @@ export default function Main() {
                 alignItems: 'center'
             }}
         >
-            <Link to="/product/:productId" style={{ textDecoration: 'none', }}>
+            
             <Cards/>
-            </Link>
+            
             
         </Box>
     );

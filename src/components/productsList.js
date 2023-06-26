@@ -5,6 +5,7 @@ import { fetchProducts } from '../store/actions/CardsActions';
 import { Box, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Rating } from '@mui/material';
 import '../../src/style.css'
 
+
 export default function Cards() {
   const products = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export default function Cards() {
       >
         {products && products.length > 0 ? (
           products.map((product) => (
-            <Grid item key={product.id}>
+            <Grid item key={product.id} product={product}>
               <Link  to={`/product/${product.id}`} style={{ textDecoration: 'none',   }}>
                 <Card
                   sx={{
