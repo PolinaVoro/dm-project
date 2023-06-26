@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from '@mui/material/IconButton';
@@ -21,11 +21,6 @@ const CartIcon = () => {
   const dispatch = useDispatch();
   const [isCartOpen, setCartOpen] = useState(false);
 
-
-  useEffect(() => {
-    dispatch(fetchCartItems());
-  }, [dispatch]);
-
   const cartItems = useSelector((state) => state.cart.cartItems);
 
   const handleCartClick = () => {
@@ -47,12 +42,15 @@ const CartIcon = () => {
       <Button>
         <Typography sx={{ color: '#172029', fontSize: 15 }}>Корзина</Typography>
       </Button>
-      {isCartOpen && <CartContent />}
+      {isCartOpen && (
+        <CartContent cartItems={cartItems} />
+      )}
     </div>
   );
 };
 
 export default CartIcon;
+
 
 
 

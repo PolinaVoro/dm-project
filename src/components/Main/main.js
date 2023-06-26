@@ -1,6 +1,6 @@
 import { Box } from "@mui/system";
 import React from "react";
-import Cards from "../productsList";
+import Cards from "../../components/Main/productsList";
 
 
 

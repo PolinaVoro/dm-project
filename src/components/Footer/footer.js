@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Box } from "@mui/material";
-import PaginationFooter from "./Main/pagination";
-import { setCurrentPage, fetchProducts } from '../store/actions/CardsActions';
+import PaginationFooter from "./pagination";
+import { setCurrentPage, fetchProducts } from '../../store/actions/CardsActions';
 import { useDispatch, useSelector } from "react-redux";
 
 

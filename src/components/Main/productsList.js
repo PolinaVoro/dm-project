@@ -1,9 +1,9 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchProducts } from '../store/actions/CardsActions';
+import { fetchProducts } from '../../store/actions/CardsActions';
 import { Box, Grid, Card, CardActionArea, CardContent, CardMedia, Typography, Rating } from '@mui/material';
-import '../../src/style.css'
+import '../../../src/style.css'
 
 
 export default function Cards() {
