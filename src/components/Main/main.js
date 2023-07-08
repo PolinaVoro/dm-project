@@ -1,6 +1,7 @@
 import { Box } from "@mui/system";
 import React from "react";
 import Cards from "../../components/Main/productsList";
+import OrdersPage from "../ordersPage";
 
 
 
@@ -18,7 +19,7 @@ export default function Main() {
             }}
         >
             
-            <Cards/>
+           <Cards/>
             
             
         </Box>

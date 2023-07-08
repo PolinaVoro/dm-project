@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import Button from '@mui/material/Button';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import IconButton from '@mui/material/IconButton';
@@ -23,12 +23,20 @@ const CartIcon = () => {
 
   const cartItems = useSelector((state) => state.cart.cartItems);
 
+  const cartContentRef = useRef(null);
+
   const handleCartClick = () => {
     setCartOpen(!isCartOpen);
   };
 
+  const handleClickOutside = (event) => {
+    if (cartContentRef.current && !cartContentRef.current.contains(event.target)) {
+      setCartOpen(false);
+    }
+  };
+
   return (
-    <div>
+    <div onClick={handleClickOutside}>
       <IconButton
         sx={{ paddingRight: 1.2, color: '#172029' }}
         aria-label="cart"
@@ -43,13 +51,17 @@ const CartIcon = () => {
         <Typography sx={{ color: '#172029', fontSize: 15 }}>Корзина</Typography>
       </Button>
       {isCartOpen && (
-        <CartContent cartItems={cartItems} />
+        <div ref={cartContentRef}>
+          <CartContent cartItems={cartItems} />
+        </div>
       )}
     </div>
   );
 };
 
 export default CartIcon;
+
+
 
 
 
