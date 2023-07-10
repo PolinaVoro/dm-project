@@ -3,9 +3,10 @@ import { Box } from "@mui/material";
 import PaginationFooter from "./pagination";
 import { setCurrentPage, fetchProducts } from '../../store/actions/CardsActions';
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from 'react-router-dom';
+import Typography from '@mui/material/Typography';
 
-
-export default function Footer() {
+export default function Footer( { hidePagination }) {
   const currentPage = useSelector((state) => state.pagination.currentPage);
   const totalPages = useSelector((state) => state.pagination.totalPages);
   const dispatch = useDispatch();
@@ -30,12 +31,15 @@ export default function Footer() {
         
       }}
       component="footer"
-    >
+    >  {hidePagination ? (
+      <Typography variant="body1"></Typography>
+      ) : (
       <PaginationFooter
         currentPage={currentPage}
         totalPages={totalPages}
         onPageChange={handlePageChange}
       />
+      )}
     </Box>
   );
 }

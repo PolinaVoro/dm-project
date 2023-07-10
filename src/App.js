@@ -18,22 +18,22 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Main />} />
           <Route path="/product/:productId" element={<ProductDetailsPage />} />
-        </Routes>
-        <Routes>
-          <Route path="/product/:productId" render={() => <Footer hidePagination />} />
-          <Route exact path="/" element={<Footer />} />
-        </Routes>
-        <Routes>
-          
           <Route path="/orders" element={<OrdersPage />} />
         </Routes>
-        <Footer />
+        <Routes>
+          <Route
+            path="/product/:productId"
+            element={<Footer hidePagination />}
+          />
+          <Route exact path="/" element={<Footer />} />
+        </Routes>
       </div>
     </Router>
   );
 }
 
 export default App;
+
 
 
 

@@ -1,21 +1,9 @@
 import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
 import { Popover, Typography } from '@mui/material';
 import Button from '@mui/material/Button';
 import CountButton from '../countButton';
-import { fetchOrdersAction } from '../../store/actions/OrdersActions';
 
-const CartContent = () => {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const dispatch = useDispatch();
-
-
-  const handlePlaceOrder = () => {
-    const page = 1; 
-    const limit = 10; 
-    dispatch(fetchOrdersAction(page, limit));
-  };
-
+const CartContent = ({ cartItems, setCartOrders, handlePlaceOrder }) => {
   return (
     <Popover
       open={cartItems.length}
@@ -87,4 +75,3 @@ const CartContent = () => {
 };
 
 export default CartContent;
-
